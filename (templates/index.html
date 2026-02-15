@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSS 转 PNG 在线工具</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DSS 转 PNG 在线转换工具</h1>
+            <p>专注于Hec-DSS水文数据文件转换为可视化PNG图表</p>
+        </header>
+        
+        <main>
+            <div class="upload-box">
+                <form id="convertForm">
+                    <div class="form-group">
+                        <label for="dssFile">选择DSS文件：</label>
+                        <input type="file" id="dssFile" name="dssFile" accept=".dss" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dssPath">DSS数据路径（可选）：</label>
+                        <input type="text" id="dssPath" name="dssPath" 
+                               placeholder="/PROJECT/FLOW/01JAN2020/1HOUR/VALUE/"
+                               value="/PROJECT/FLOW/01JAN2020/1HOUR/VALUE/">
+                        <small>可通过Hec-DSSVue查看文件内的具体路径</small>
+                    </div>
+                    
+                    <button type="submit" id="convertBtn" class="btn primary">开始转换</button>
+                </form>
+                
+                <div id="progress" class="progress hidden">
+                    <div class="progress-bar"></div>
+                    <p id="progressText">准备中...</p>
+                </div>
+                
+                <div id="result" class="result hidden">
+                    <h3>转换成功！</h3>
+                    <a id="downloadLink" href="#" class="btn success" download>下载PNG文件</a>
+                </div>
+                
+                <div id="error" class="error hidden"></div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>注意：本工具仅支持Hec-DSS水文数据文件转换，音频类DSS文件无法转换</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
